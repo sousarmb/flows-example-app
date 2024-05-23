@@ -1,0 +1,26 @@
+{
+    "name": "rsousa/flows-example-app",
+    "description": "Flows example app",
+    "type": "project",
+    "require": {
+        "rsousa/flows": "^1.0",
+        "rsousa/collectibles": "^1.0"
+    },
+    "license": "MIT",
+    "autoload": {
+        "psr-4": {
+            "App\\": "src/"
+        }
+    },
+    "authors": [
+        {
+            "name": "Ricardo Sousa",
+            "email": "rmbsousa@gmail.com"
+        }
+    ],
+    "scripts": {
+        "post-install-cmd": [
+            "App\\setup::postInstall"
+        ]
+    }
+}
