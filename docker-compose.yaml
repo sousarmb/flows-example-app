@@ -1,11 +1,7 @@
 services:
-  web-php82:
+  cli-php82:
     container_name: flows-example-app
-#    extra_hosts:
-#      - "host.docker.internal:host-gateway"
     build:
       dockerfile: Dockerfile
-    ports:
-      - "8002:8080"
     volumes:
       - .:/code
