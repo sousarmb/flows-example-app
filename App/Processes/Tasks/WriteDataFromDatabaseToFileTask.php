@@ -14,6 +14,7 @@ use LogicException;
 
 class WriteDataFromDatabaseToFileTask implements Task
 {
+    private $fileHandle;
 
     public function __construct(
         private DateService $dateService
@@ -31,9 +32,10 @@ class WriteDataFromDatabaseToFileTask implements Task
             throw new LogicException('Need result set, received NULL');
         }
 
+        $this->fileHandle = $fileResource->get('fileHandle');
         while ($row = $resultSet->get('result')->fetchArray(SQLITE3_NUM)) {
             fwrite(
-                $fileResource->get('fileHandle'),
+                $this->fileHandle,
                 __CLASS__ . ' > PHP time: ' . $this->dateService->now() . ' > DB data ' . implode(', ', $row) . PHP_EOL
             );
         }
@@ -44,5 +46,12 @@ class WriteDataFromDatabaseToFileTask implements Task
         return new Collection();
     }
 
-    public function cleanUp(): void {}
+    public function cleanUp(): void
+    {
+        echo 'PID #' . getmypid() . ' > ';
+        echo fclose($this->fileHandle)
+            ? 'Closed file resource: my-new-text-file'
+            : 'Could not close file resource: my-new-text-file';
+        echo PHP_EOL;
+    }
 }

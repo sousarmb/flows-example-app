@@ -27,12 +27,5 @@ class CreateFileTask implements Task
         );
     }
 
-    public function cleanUp(): void
-    {
-        echo 'PID #' . getmypid() . ' > ';
-        echo fclose($this->fileResource)
-            ? 'Closed file resource: my-new-text-file'
-            : 'Could not close file resource: my-new-text-file';
-        echo PHP_EOL;
-    }
+    public function cleanUp(): void {}
 }

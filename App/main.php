@@ -29,7 +29,7 @@ $app->setProcessRegistry(
                 ->add(ReadWriteFromDatabaseProcess::class)
 );
 
-$return = $app->processProcess(CreateAndWriteToFileProcess::class, null);
+$return = $app->process(CreateAndWriteToFileProcess::class, null);
 
 echo "\nDump process flow:\n";
 $flow = array_map(
