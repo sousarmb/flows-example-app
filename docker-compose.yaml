@@ -1,5 +1,5 @@
 services:
-  cli-php82:
+  cli-flows-example-app-php84:
     container_name: flows-example-app
     build:
       dockerfile: Dockerfile
