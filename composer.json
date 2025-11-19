@@ -5,7 +5,7 @@
     "require": {
         "nesbot/carbon": "^3.10",
         "ramsey/uuid": "^4.9",
-        "rsousa/flows": "^1.3"
+        "rsousa/flows": "^2.2"
     },
     "license": "MIT",
     "autoload": {
