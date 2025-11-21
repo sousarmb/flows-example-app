@@ -640,16 +640,16 @@
         },
         {
             "name": "rsousa/flows",
-            "version": "v2.2",
+            "version": "v2.2.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/sousarmb/flows.git",
-                "reference": "42c66a35dd9ee7aaa76785714fdc2aea6b5e6e38"
+                "reference": "c496b60d02e82b8297fae553efa2a6cf9196c38d"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/sousarmb/flows/zipball/42c66a35dd9ee7aaa76785714fdc2aea6b5e6e38",
-                "reference": "42c66a35dd9ee7aaa76785714fdc2aea6b5e6e38",
+                "url": "https://api.github.com/repos/sousarmb/flows/zipball/c496b60d02e82b8297fae553efa2a6cf9196c38d",
+                "reference": "c496b60d02e82b8297fae553efa2a6cf9196c38d",
                 "shasum": ""
             },
             "require": {
@@ -680,9 +680,9 @@
             "description": "PHP application framework inspired on BPMN 1.0",
             "support": {
                 "issues": "https://github.com/sousarmb/flows/issues",
-                "source": "https://github.com/sousarmb/flows/tree/v2.2"
+                "source": "https://github.com/sousarmb/flows/tree/v2.2.1"
             },
-            "time": "2025-11-19T22:54:13+00:00"
+            "time": "2025-11-21T13:13:27+00:00"
         },
         {
             "name": "symfony/clock",
