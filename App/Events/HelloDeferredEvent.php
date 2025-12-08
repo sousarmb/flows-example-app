@@ -6,7 +6,7 @@ namespace App\Events;
 
 use Flows\Event\Event;
 
-readonly class HelloWorldEvent extends Event
+readonly class HelloDeferredEvent extends Event
 {
     public function __construct(
         private string $greeting
