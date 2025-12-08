@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace App\Events\Handlers;
 
-use Flows\Attributes\Defer\DeferFromProcess;
+use Flows\Attributes\Realtime;
 use Flows\Contracts\EventHandler;
 use Flows\Event\Event;
 
@@ -13,18 +13,18 @@ use Flows\Event\Event;
  * process where they triggered or from the whole flow.
  * The developer uses attributes in the Flows\Attributes
  * namespace to control this:
- * - DeferFromProcess, observation happens after the process 
- *  where they are triggered is finished
- * - DeferFromFlow, observation happens after all processes
+ * - DeferFromProcess, event is handled after the process 
+ *  where it was dispatched is finished
+ * - DeferFromFlow, event is handled after all processes
  *  are finished
- * - Realtime, observation occurs when triggered
+ * - Realtime, event is handled immediatly after dispatching
  */
 
-#[DeferFromProcess()]
-class HelloWorldEventHandler implements EventHandler
+#[Realtime()]
+class HelloRealtimeEventHandler implements EventHandler
 {
     public function handle(Event $event): void
     {
-        echo 'An event was triggered: ' . get_class($event) . PHP_EOL;
+        echo 'A realtime event was triggered: ' . get_class($event) . PHP_EOL;
     }
 }

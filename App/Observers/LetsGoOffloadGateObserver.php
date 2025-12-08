@@ -4,8 +4,8 @@ declare(strict_types=1);
 
 namespace App\Observers;
 
+use Flows\Attributes\Defer\DeferFromFlow;
 use Flows\Contracts\Observer;
-use Flows\Attributes\Defer\DeferFromProcess;
 
 /*
  * Observations can happen in realtime, deferred from the 
@@ -19,12 +19,12 @@ use Flows\Attributes\Defer\DeferFromProcess;
  * - Realtime, observation occurs when triggered
  */
 
-#[DeferFromProcess()]
+#[DeferFromFlow()]
 class LetsGoOffloadGateObserver implements Observer
 {
     public function observe(object $subject): void
     {
         $offloadProcesses = $subject();
-        echo 'PID #' . getmypid() . ' > Observed offload gate with processes: ' . implode(', ', $offloadProcesses) . PHP_EOL;
+        echo 'PID #' . getmypid() . ' > Observed offload AND gate with processes: ' . implode(', ', $offloadProcesses) . PHP_EOL;
     }
 }

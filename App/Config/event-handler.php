@@ -1,8 +1,11 @@
 <?php
 
-use App\Events\Handlers\HelloWorldEventHandler;
-use App\Events\HelloWorldEvent;
+use App\Events\Handlers\HelloDeferredEventHandler;
+use App\Events\Handlers\HelloRealtimeEventHandler;
+use App\Events\HelloDeferredEvent;
+use App\Events\HelloRealtimeEvent;
 
 return [
-    HelloWorldEvent::class => HelloWorldEventHandler::class
+    HelloRealtimeEvent::class => HelloRealtimeEventHandler::class,
+    HelloDeferredEvent::class => HelloDeferredEventHandler::class
 ];

@@ -1,15 +1,12 @@
 <?php
 
-declare(strict_types=1);
-
 namespace App\Processes\IO;
 
 use Collectibles\IO;
 
-readonly class FileResourceIO extends IO
+readonly class CounterIO extends IO
 {
-
     public function __construct(
-        protected mixed $fileHandle
+        protected int $counter
     ) {}
 }
