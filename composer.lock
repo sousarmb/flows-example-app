@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "ee6581e2a82113b77ce77f2ec81d988d",
+    "content-hash": "1ece14f48dda93479ee1c9c068af47ff",
     "packages": [
         {
             "name": "brick/math",
@@ -519,20 +519,20 @@
         },
         {
             "name": "ramsey/uuid",
-            "version": "4.9.1",
+            "version": "4.9.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/ramsey/uuid.git",
-                "reference": "81f941f6f729b1e3ceea61d9d014f8b6c6800440"
+                "reference": "8429c78ca35a09f27565311b98101e2826affde0"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/ramsey/uuid/zipball/81f941f6f729b1e3ceea61d9d014f8b6c6800440",
-                "reference": "81f941f6f729b1e3ceea61d9d014f8b6c6800440",
+                "url": "https://api.github.com/repos/ramsey/uuid/zipball/8429c78ca35a09f27565311b98101e2826affde0",
+                "reference": "8429c78ca35a09f27565311b98101e2826affde0",
                 "shasum": ""
             },
             "require": {
-                "brick/math": "^0.8.8 || ^0.9 || ^0.10 || ^0.11 || ^0.12 || ^0.13 || ^0.14",
+                "brick/math": "^0.8.16 || ^0.9 || ^0.10 || ^0.11 || ^0.12 || ^0.13 || ^0.14",
                 "php": "^8.0",
                 "ramsey/collection": "^1.2 || ^2.0"
             },
@@ -591,9 +591,9 @@
             ],
             "support": {
                 "issues": "https://github.com/ramsey/uuid/issues",
-                "source": "https://github.com/ramsey/uuid/tree/4.9.1"
+                "source": "https://github.com/ramsey/uuid/tree/4.9.2"
             },
-            "time": "2025-09-04T20:59:21+00:00"
+            "time": "2025-12-14T04:43:48+00:00"
         },
         {
             "name": "rsousa/collectibles",
@@ -640,28 +640,31 @@
         },
         {
             "name": "rsousa/flows",
-            "version": "v2.3.1",
+            "version": "v2.4",
             "source": {
                 "type": "git",
                 "url": "https://github.com/sousarmb/flows.git",
-                "reference": "9eeaaaca6dfaa7f119a8aac7fe79f07fda28f089"
+                "reference": "98a47359b057cd109974190d7a43aee443ccf1d3"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/sousarmb/flows/zipball/9eeaaaca6dfaa7f119a8aac7fe79f07fda28f089",
-                "reference": "9eeaaaca6dfaa7f119a8aac7fe79f07fda28f089",
+                "url": "https://api.github.com/repos/sousarmb/flows/zipball/98a47359b057cd109974190d7a43aee443ccf1d3",
+                "reference": "98a47359b057cd109974190d7a43aee443ccf1d3",
                 "shasum": ""
             },
             "require": {
                 "monolog/monolog": "^3.9",
-                "php": ">=8.4",
+                "php": ">=8.1",
                 "rsousa/collectibles": "^1.4"
             },
             "require-dev": {
                 "phpunit/phpunit": "^12.4",
                 "squizlabs/php_codesniffer": "^4.0"
             },
-            "type": "project",
+            "bin": [
+                "src/Scaffold/flows"
+            ],
+            "type": "library",
             "autoload": {
                 "psr-4": {
                     "Flows\\": "src/"
@@ -677,12 +680,12 @@
                     "email": "rmbsousa@gmail.com"
                 }
             ],
-            "description": "PHP application framework inspired on BPMN 1.0",
+            "description": "A lightweight, BPMN-inspired workflow engine for PHP 8.1+",
             "support": {
                 "issues": "https://github.com/sousarmb/flows/issues",
-                "source": "https://github.com/sousarmb/flows/tree/v2.3.1"
+                "source": "https://github.com/sousarmb/flows/tree/v2.4"
             },
-            "time": "2025-12-05T14:22:22+00:00"
+            "time": "2025-12-22T23:59:27+00:00"
         },
         {
             "name": "symfony/clock",
@@ -848,16 +851,16 @@
         },
         {
             "name": "symfony/translation",
-            "version": "v8.0.0",
+            "version": "v8.0.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/translation.git",
-                "reference": "82ab368a6fca6358d995b6dd5c41590fb42c03e6"
+                "reference": "770e3b8b0ba8360958abedcabacd4203467333ca"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/translation/zipball/82ab368a6fca6358d995b6dd5c41590fb42c03e6",
-                "reference": "82ab368a6fca6358d995b6dd5c41590fb42c03e6",
+                "url": "https://api.github.com/repos/symfony/translation/zipball/770e3b8b0ba8360958abedcabacd4203467333ca",
+                "reference": "770e3b8b0ba8360958abedcabacd4203467333ca",
                 "shasum": ""
             },
             "require": {
@@ -917,7 +920,7 @@
             "description": "Provides tools to internationalize your application",
             "homepage": "https://symfony.com",
             "support": {
-                "source": "https://github.com/symfony/translation/tree/v8.0.0"
+                "source": "https://github.com/symfony/translation/tree/v8.0.1"
             },
             "funding": [
                 {
@@ -937,7 +940,7 @@
                     "type": "tidelift"
                 }
             ],
-            "time": "2025-11-27T08:09:45+00:00"
+            "time": "2025-12-01T09:13:36+00:00"
         },
         {
             "name": "symfony/translation-contracts",
