@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "1ece14f48dda93479ee1c9c068af47ff",
+    "content-hash": "ee6581e2a82113b77ce77f2ec81d988d",
     "packages": [
         {
             "name": "brick/math",
@@ -640,16 +640,16 @@
         },
         {
             "name": "rsousa/flows",
-            "version": "v2.4",
+            "version": "v2.4.1.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/sousarmb/flows.git",
-                "reference": "98a47359b057cd109974190d7a43aee443ccf1d3"
+                "reference": "e25bc28a84ed0e2c971dcda42da5d7966ab0734d"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/sousarmb/flows/zipball/98a47359b057cd109974190d7a43aee443ccf1d3",
-                "reference": "98a47359b057cd109974190d7a43aee443ccf1d3",
+                "url": "https://api.github.com/repos/sousarmb/flows/zipball/e25bc28a84ed0e2c971dcda42da5d7966ab0734d",
+                "reference": "e25bc28a84ed0e2c971dcda42da5d7966ab0734d",
                 "shasum": ""
             },
             "require": {
@@ -683,9 +683,9 @@
             "description": "A lightweight, BPMN-inspired workflow engine for PHP 8.1+",
             "support": {
                 "issues": "https://github.com/sousarmb/flows/issues",
-                "source": "https://github.com/sousarmb/flows/tree/v2.4"
+                "source": "https://github.com/sousarmb/flows/tree/v2.4.1.2"
             },
-            "time": "2025-12-22T23:59:27+00:00"
+            "time": "2025-12-23T01:38:36+00:00"
         },
         {
             "name": "symfony/clock",
