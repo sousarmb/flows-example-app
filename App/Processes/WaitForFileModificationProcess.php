@@ -15,21 +15,6 @@ class WaitForFileModificationProcess extends Process
 {
     public function __construct()
     {
-        // (For demonstration purpose only)
-        $docs = <<<TEXT
-This demo uses a process with 2 tasks.
-
-The first task creates file - App/demo-text-file 
-
-The second task writes "hello world" to the file.
-
-The third step is an event gate with two events: check if file is modified by an external process, check
-if tomorrow comes. The first event to happen determines the next process to run / flow path. 
-
-The gate has a timeout of 15 seconds, after that it resolves to the default path set by the developer.\n\n
-TEXT;
-        echo __CLASS__ . ": $docs";
-        readline("Press return key to continue ...\n");
         $this->tasks = [
             new class implements TaskContract {
 

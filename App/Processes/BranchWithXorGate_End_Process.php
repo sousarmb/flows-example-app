@@ -13,14 +13,6 @@ class BranchWithXorGate_End_Process extends Process
 {
     public function __construct()
     {
-        // (For demonstration purpose only)
-        $docs = <<<TEXT
-Flow ends here.
-
-This process has 2 tasks. Both increment a counter that was received as input 
-from another process.\n\n
-TEXT;
-        echo __CLASS__ . ": $docs";
         $this->tasks = [
             new class implements TaskContract {
                 public function __invoke(?IOContract $io = null): ?IOContract

@@ -12,11 +12,6 @@ class DefaultProcess extends Process
 {
     public function __construct()
     {
-        // (For demonstration purpose only)
-        $docs = <<<TEXT
-This process returns received IO, nothing more.\n\n
-TEXT;
-        echo __CLASS__ . ": $docs";
         $this->tasks = [
             new class implements TaskContract {
                 public function __invoke(?IOContract $io = null): ?IOContract

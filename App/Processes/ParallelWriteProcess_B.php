@@ -12,12 +12,6 @@ class ParallelWriteProcess_B extends Process
 {
     public function __construct()
     {
-        $docs = <<<TEXT
-This process is running in parallel with others. 
-
-It will return to the parent process when it is done.\n\n
-TEXT;
-        echo __CLASS__ . ": $docs";
         $this->tasks = [
             new class implements TaskContract {
                 public function __invoke(?IOContract $io = null): ?IOContract

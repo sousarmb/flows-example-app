@@ -15,12 +15,9 @@ class ParallelProcess_A extends Process
 {
     public function __construct()
     {
-        $docs = <<<TEXT
-This process is running in parallel with others. 
-
-It will return to the parent process when it is done.\n\n
-TEXT;
-        echo __CLASS__ . ": $docs";
+        /* This process is used in 2 demos, check which one is running:
+         * - demo-branch-and-gate-offload
+         * - demo-branch-and-gate */
         if (ApplicationKernel::isOffloadedProcess()) {
             $this->tasks = [
                 CounterAndPidOffloadedTask::class

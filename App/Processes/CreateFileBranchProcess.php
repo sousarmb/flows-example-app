@@ -16,14 +16,6 @@ class CreateFileBranchProcess extends Process
 {
     public function __construct()
     {
-        // (For demonstration purpose only)
-        $docs = <<<TEXT
-This demo uses a process with 1 task. 
-
-The task creates a file in the App directory. The process the branches.\n\n
-TEXT;
-        echo __CLASS__ . ": $docs";
-        readline("Press return key to continue ...\n");
         $this->tasks = [
             new class implements TaskContract {
                 public function __invoke(?IOContract $io = null): ?IOContract
