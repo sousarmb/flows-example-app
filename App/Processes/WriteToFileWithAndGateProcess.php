@@ -16,26 +16,17 @@ class WriteToFileWithAndGateProcess extends Process
 {
     public function __construct()
     {
-        // (For demonstration purpose only)
-        $docs = <<<TEXT
-This demo uses a process with 2 tasks. 
-
-The first connects to a sqlite database.
-
-Then 3 processes branch from the "parent" process with an And gate. The first two  
-write on the file created on the previous process. The third is there to retain 
-the original IO in the "parent" process.
-
-The last task show the file contents.\n\n
-TEXT;
-        echo __CLASS__ . ": $docs";
-        readline("Press return key to continue ...\n");
         $this->tasks = [
             new class implements TaskContract {
+                /**
+                 * @var SQLite3 $dbconn The database connection
+                 */
+                private SQLite3 $dbconn;
+
                 public function __invoke(?IOContract $io = null): ?IOContract
                 {
-                    $dbconn = new SQLite3(Config::getApplicationDirectory() . 'my-sqlite-db');
-                    return new readonly class($dbconn, $io->get('fileHandle'), $io->get('fileName')) extends IO {
+                    $this->dbconn = new SQLite3(Config::getApplicationDirectory() . 'my-sqlite-db');
+                    return new readonly class($this->dbconn, $io->get('fileHandle'), $io->get('fileName')) extends IO {
                         public function __construct(
                             protected SQLite3 $dbconn,
                             protected mixed $fileHandle,
@@ -44,7 +35,10 @@ TEXT;
                     };
                 }
 
-                public function cleanUp(bool $forSerialization = false): void {}
+                public function cleanUp(bool $forSerialization = false): void
+                {
+                    $this->dbconn->close();
+                }
             },
             new class extends AndGate {
                 public function __invoke(): array

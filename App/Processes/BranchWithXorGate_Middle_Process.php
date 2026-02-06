@@ -14,17 +14,6 @@ class BranchWithXorGate_Middle_Process extends Process
 {
     public function __construct()
     {
-        // (For demonstration purpose only)
-        $docs = <<<TEXT
-Which is this one.
-
-This process has 2 tasks. Both increment a counter that was received as input 
-from another process. 
-
-The process ends with a XOR gate where the counter value is evaluated to
-determine the path to follow (branches to next process).\n\n
-TEXT;
-        echo __CLASS__ . ": $docs";
         $this->tasks = [
             new class implements TaskContract {
                 public function __invoke(?IOContract $io = null): ?IOContract
@@ -49,10 +38,8 @@ TEXT;
             new class extends XorGate {
                 public function __invoke(): string
                 {
-                    /*
-                     * The developer can access the previous task IO to 
-                     * help choose which path to follow
-                     */
+                    /* The developer can access the previous task IO to 
+                     * help choose which path to follow */
                     return $this->io->get('counter') % 2
                         ? BranchWithXorGate_End_Process::class
                         : DefaultProcess::class;

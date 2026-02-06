@@ -5,7 +5,7 @@ declare(strict_types=1);
 namespace App\Services\Providers;
 
 use App\Contracts\GreetContract;
-use App\Processes\Tasks\CreateFileTask;
+use App\Processes\Tasks\CreateDemoTextFileTask;
 use App\Services\HelloGalaxyService;
 use App\Services\HelloWorldService;
 use Flows\Attributes\Lazy;
@@ -33,7 +33,7 @@ class GreetServiceProvider implements ServiceProvider
 {
     public function __invoke(?Caller $caller = null): GreetContract
     {
-        return $caller->get() === CreateFileTask::class
+        return $caller->get() === CreateDemoTextFileTask::class
             ? new HelloWorldService()
             : new HelloGalaxyService();
     }

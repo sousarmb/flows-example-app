@@ -13,15 +13,6 @@ class NoBranchProcess extends Process
 {
     public function __construct()
     {
-        // (For demonstration purpose only)
-        $docs = <<<TEXT
-This demo uses a process with 3 tasks.
-
-The first creates the input for the next tasks, the second and third create new
-input for the next task, incrementing the counter.\n\n
-TEXT;
-        echo __CLASS__ . ": $docs";
-        readline("Press return key to continue ...\n");
         $this->tasks = [
             new class implements TaskContract {
                 public function __invoke(?IOContract $io = null): ?IOContract

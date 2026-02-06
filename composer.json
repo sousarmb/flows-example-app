@@ -3,8 +3,6 @@
     "description": "Flows example app",
     "type": "project",
     "require": {
-        "nesbot/carbon": "^3.10",
-        "ramsey/uuid": "^4.9",
         "rsousa/flows": "^2.3"
     },
     "license": "MIT",

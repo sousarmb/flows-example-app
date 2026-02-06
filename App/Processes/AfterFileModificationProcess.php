@@ -13,11 +13,6 @@ class AfterFileModificationProcess extends Process
 {
     public function __construct()
     {
-        // (For demonstration purpose only)
-        $docs = <<<TEXT
-The file has been modified by an external process. This path was chosen.\n\n
-TEXT;
-        echo __CLASS__ . ": $docs";
         $this->tasks = [
             new class implements TaskContract {
                 protected IO $io;
