@@ -7,7 +7,7 @@ RUN php -r "copy('https://getcomposer.org/installer', 'composer-setup.php');" &&
     php composer-setup.php &&\
     php -r "unlink('composer-setup.php');" &&\
     mv composer.phar /usr/local/bin/composer
-RUN apt-get install sqlite3
+RUN apt-get install sqlite3 pdo_sqlite
 RUN docker-php-ext-install zip
 WORKDIR /code
 ENTRYPOINT ["tail", "-f", "/dev/null"]

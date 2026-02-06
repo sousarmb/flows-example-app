@@ -11,9 +11,9 @@ use Flows\Facades\Config;
 use Flows\Gates\EventGate;
 use Flows\Gates\Events\FileModificationEvent;
 use Flows\Gates\Events\SqlResultSetEvent;
-use PDO;
 use Pdo\Sqlite;
 use PDOStatement;
+use RuntimeException;
 
 class WaitForFileModificationGate extends EventGate
 {
@@ -30,7 +30,7 @@ class WaitForFileModificationGate extends EventGate
     public function __construct()
     {
         $dsn = sprintf('sqlite:%s%s', Config::getApplicationDirectory(), 'my-sqlite-db');
-        $this->conn = new PDO($dsn);
+        $this->conn = new Sqlite($dsn);
 
         /* After this time has passed the gate stops waiting for events and 
          * calls __invoke() to determine where to branch the flow */
@@ -39,8 +39,11 @@ class WaitForFileModificationGate extends EventGate
 
     public function registerEvents(): void
     {
-        $this->pstmt = $this->conn->prepare('SELECT some FROM tbl_A WHERE some="?"');
+        if (false === $this->pstmt = $this->conn->prepare('SELECT some FROM tbl_A WHERE some=?')) {
+            throw new RuntimeException('Bad SQL statement');
+        }
 
+        $resultSetEvent = new SqlResultSetEvent($this->pstmt, ['my-text']);
         $this
             ->pushEvent(
                 new FileModificationEvent(
@@ -55,16 +58,12 @@ class WaitForFileModificationGate extends EventGate
                 new PipeMessageGateEvent('/tmp/myfifo') // This gate event represents a pipe write by an external process
             )
             ->pushEvent(new GetItGoingGateEvent())
-            ->pushEvent(
-                new SqlResultSetEvent(
-                    $this->pstmt,
-                    ['my-text']
-                )
-            );
+            ->pushEvent($resultSetEvent);
     }
 
     public function __invoke(): string
     {
+        // $winner is the first event to resolve successfully
         return $this->winner instanceof FileModificationEvent
             ? AfterFileModificationProcess::class
             : DefaultProcess::class;
