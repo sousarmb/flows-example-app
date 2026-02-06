@@ -5,7 +5,7 @@
 3. Enter the container
 4. Run `composer install`
 5. Run composer setup script to create sqlite3 database
-6. Run the demos inside the `App` directory with `php App/[demo-file-name].php`. A brief explanation of the demo is shown on execution.
+6. Run the demos inside the `App` directory with `php App/[demo-file-name].php`. (Look for the demo explanation in the markdown file with the same name)
 7. **Fiddle with the code**
 
 Constructive feedback and criticism is welcome!
