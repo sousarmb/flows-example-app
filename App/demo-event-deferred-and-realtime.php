@@ -16,7 +16,7 @@ $docs = <<<TEXT
 Read "demo-event-deferred-and-realtime.md" file before running this demo.
 TEXT;
 echo "\n{$docs}\n\n";
-readline("Press return key to continue ...\n");
+readline("Press return key to continue ...");
 
 $app = new ApplicationKernel();
 $app->setProcessRegistry(

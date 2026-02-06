@@ -31,7 +31,6 @@ class WaitForFileModificationGate extends EventGate
     {
         $dsn = sprintf('sqlite:%s%s', Config::getApplicationDirectory(), 'my-sqlite-db');
         $this->conn = new Sqlite($dsn);
-
         /* After this time has passed the gate stops waiting for events and 
          * calls __invoke() to determine where to branch the flow */
         $this->expires = 60; // seconds
@@ -39,7 +38,8 @@ class WaitForFileModificationGate extends EventGate
 
     public function registerEvents(): void
     {
-        if (false === $this->pstmt = $this->conn->prepare('SELECT some FROM tbl_A WHERE some=?')) {
+        $this->pstmt = $this->conn->prepare('SELECT some FROM tbl_A WHERE some=?');
+        if (false === $this->pstmt) {
             throw new RuntimeException('Bad SQL statement');
         }
 

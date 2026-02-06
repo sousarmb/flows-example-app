@@ -19,7 +19,7 @@ $docs = <<<TEXT
 Read "demo-branch-and-gate-offload.md" file before running this demo.
 TEXT;
 echo "\n{$docs}\n\n";
-readline("Press return key to continue ...\n");
+readline("Press return key to continue ...");
 
 $app = new ApplicationKernel();
 $app->setProcessRegistry(
