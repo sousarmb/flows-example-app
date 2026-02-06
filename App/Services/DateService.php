@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace App\Services;
 
-use Carbon\Carbon;
+use DateTime;
 use Flows\Attributes\Lazy;
 use Flows\Attributes\Singleton;
 
@@ -26,24 +26,20 @@ use Flows\Attributes\Singleton;
 #[Singleton(true)]
 class DateService
 {
-    private Carbon $carbon;
+    private DateTime $dt;
 
     public function __construct()
     {
-        /*
-         * The factory does not support ReflectionUnionType 
-         * so Carbon cannot be type-hinted in the constructor (yet)
-         */
-        $this->carbon = new Carbon();
+        $this->dt = new DateTime();
     }
 
     public function now(): string
     {
-        return $this->carbon->now()->format('Y-m-d H:i:s');
+        return $this->dt->format('Y-m-d H:i:s');
     }
 
     public function today(): string
     {
-        return $this->carbon->now()->format('Y-m-d');
+        return $this->dt->format('Y-m-d');
     }
 }

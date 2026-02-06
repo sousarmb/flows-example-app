@@ -26,7 +26,7 @@ class GetItGoingGateEvent extends HttpEvent
         $request = json_decode($data, true);
         if (
             isset($request['headers']['Authorization'])
-            && $request['headers']['Authorization'][0] === 'Basic 1234'
+            && $request['headers']['Authorization'][0] === 'Bearer 1234'
         ) {
             return $this->accepted(200, "Accepted", "Flow is going to resume");
         }

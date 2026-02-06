@@ -38,10 +38,8 @@ class BranchWithXorGate_Middle_Process extends Process
             new class extends XorGate {
                 public function __invoke(): string
                 {
-                    /*
-                     * The developer can access the previous task IO to 
-                     * help choose which path to follow
-                     */
+                    /* The developer can access the previous task IO to 
+                     * help choose which path to follow */
                     return $this->io->get('counter') % 2
                         ? BranchWithXorGate_End_Process::class
                         : DefaultProcess::class;

@@ -25,4 +25,6 @@ When one of the events happens code in the gate decides where the flow branches:
 . `AfterFileModificationProcess`, where the file contents are shown and the file is removed.
 . `DefaultProcess`, where nothing happens.
 
-> `IO` instances act as DTOs (read-only) and are used to pass values between process tasks. `Collection` instances are allowed as well, but these are not read-only.
+> `IO` instances act as [`DTO`](https://en.wikipedia.org/wiki/Data_transfer_object)s (read-only) and are used to pass values between process tasks. `Collection` instances are allowed as well, but these are not read-only.
+
+> Branching with `Event` gate is the same as branching with `Xor` gate, always flow forward.

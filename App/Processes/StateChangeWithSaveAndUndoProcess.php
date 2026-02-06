@@ -16,28 +16,6 @@ class StateChangeWithSaveAndUndoProcess extends Process
 {
     public function __construct()
     {
-        // (For demonstration purpose only)
-        $docs = <<<TEXT
-This demo uses a process with 4 tasks.
-
-The first creates the input for the next tasks, the second and third create new
-input for the next task, incrementing the counter.
-
-After the second task the process passes a save state sign which makes it save 
-its state - position and current IO - in a stack. Before the final task, a
-undo state gate reverts the process back to the state stored in the last 
-save state sign (its popped out of the stack) and resumes processing from 
-there. 
-
-Because it's a gate the developer can use logic to determine how many
-"saves" back to go. If the gate returns 0, the process is resumed, not taking
-any "saves" back (when there are no more "saves" an exception is thrown and 
-processing stops).
-
-The fourth task prints shows an ending message.\n\n
-TEXT;
-        echo __CLASS__ . ": $docs";
-        readline("Press return key to continue ...\n");
         $this->tasks = [
             new class implements TaskContract {
                 public function __invoke(?IOContract $io = null): ?IOContract
@@ -50,6 +28,8 @@ TEXT;
 
                 public function cleanUp(bool $forSerialization = false): void {}
             },
+            /* Process state is saved here, to come back to this point use 
+             * an UndoStateGate */
             SaveState::class,
             new class implements TaskContract {
                 public function __invoke(?IOContract $io = null): ?IOContract

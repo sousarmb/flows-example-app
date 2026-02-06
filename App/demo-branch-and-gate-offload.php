@@ -14,6 +14,13 @@ use Flows\Registries\ProcessRegistry;
 
 require __DIR__ . '/../vendor/autoload.php';
 
+// (For demonstration purpose only)
+$docs = <<<TEXT
+Read "demo-branch-and-gate-offload.md" file before running this demo.
+TEXT;
+echo "\n{$docs}\n\n";
+readline("Press return key to continue ...\n");
+
 $app = new ApplicationKernel();
 $app->setProcessRegistry(
         (new ProcessRegistry())
