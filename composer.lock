@@ -204,16 +204,16 @@
         },
         {
             "name": "rsousa/flows",
-            "version": "v2.7",
+            "version": "v2.7.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/sousarmb/flows.git",
-                "reference": "d4edf3357f6bb8d6c8ea9889b1704c15ac90deae"
+                "reference": "648fe80c74b5e28ebc1e076e4fcb3e24581fb7ac"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/sousarmb/flows/zipball/d4edf3357f6bb8d6c8ea9889b1704c15ac90deae",
-                "reference": "d4edf3357f6bb8d6c8ea9889b1704c15ac90deae",
+                "url": "https://api.github.com/repos/sousarmb/flows/zipball/648fe80c74b5e28ebc1e076e4fcb3e24581fb7ac",
+                "reference": "648fe80c74b5e28ebc1e076e4fcb3e24581fb7ac",
                 "shasum": ""
             },
             "require": {
@@ -248,9 +248,9 @@
             "description": "A lightweight, BPMN-inspired workflow engine for PHP 8.1+",
             "support": {
                 "issues": "https://github.com/sousarmb/flows/issues",
-                "source": "https://github.com/sousarmb/flows/tree/v2.7"
+                "source": "https://github.com/sousarmb/flows/tree/v2.7.1"
             },
-            "time": "2026-02-06T18:37:05+00:00"
+            "time": "2026-02-10T14:57:18+00:00"
         }
     ],
     "packages-dev": [],
