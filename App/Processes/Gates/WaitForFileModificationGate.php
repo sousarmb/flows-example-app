@@ -11,6 +11,7 @@ use Flows\Facades\Config;
 use Flows\Gates\EventGate;
 use Flows\Gates\Events\FileModificationEvent;
 use Flows\Gates\Events\SqlResultSetEvent;
+use Flows\Helpers\Behaviour;
 use Pdo\Sqlite;
 use PDOStatement;
 use RuntimeException;
@@ -33,7 +34,7 @@ class WaitForFileModificationGate extends EventGate
         $this->conn = new Sqlite($dsn);
         /* After this time has passed the gate stops waiting for events and 
          * calls __invoke() to determine where to branch the flow */
-        $this->expires = 60; // seconds
+        $this->expires = 90; // seconds
     }
 
     public function registerEvents(): void
@@ -55,9 +56,15 @@ class WaitForFileModificationGate extends EventGate
                 new TomorrowGateEvent(frequency: 1.23)
             )
             ->pushEvent(
-                new PipeMessageGateEvent('/tmp/myfifo') // This gate event represents a pipe write by an external process
+                new PipeMessageGateEvent('/tmp/myfifo'), // This gate event represents a pipe write by an external process
+                1,
+                Behaviour::Continue
             )
-            ->pushEvent(new GetItGoingGateEvent())
+            ->pushEvent(
+                new GetItGoingGateEvent(),
+                10,
+                Behaviour::Exit
+            )
             ->pushEvent($resultSetEvent);
     }
 
